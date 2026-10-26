@@ -1,10 +1,10 @@
 # Airsite — Web Designer & UI/UX Developer
 
-Bilingual (English / Arabic) portfolio site. The whole site is a single static file: `index.html` (HTML, CSS, JS and images are all embedded). No build step.
+Bilingual (English / Arabic) portfolio site. Static files only, no build step: `index.html` is the main page, `assets/` holds its images (WebP), and `projects/` holds the eight example sites with their images in `projects/pimg/`. The example sites load only when a visitor reaches or opens them, and images load as they scroll into view.
 
 ## Run locally
 
-Open `index.html` in a browser, or serve the folder:
+The example sites load with `fetch`, so serve the folder (opening `index.html` by double-click will not show the project previews):
 
 ```bash
 python3 -m http.server 8000
@@ -37,5 +37,5 @@ Import the repo at app.netlify.com. Leave the build command empty and set the pu
 Import the repo at vercel.com. Framework preset: **Other**, no build command. `vercel.json` is included.
 
 ## Notes
-- `index.html` is about 16 MB because images are embedded. GitHub accepts files up to 100 MB, but loading is faster if the images are compressed.
+- The site is split for fast loading: `index.html` is about 2.3 MB and each example site lives in `projects/` and loads only when it is needed; all images are compressed WebP files with long-lived caching.
 - Edits made inside the site's built-in editor are saved in the visitor's browser (localStorage); to change the live site for everyone, edit `index.html` and push.
